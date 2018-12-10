@@ -31,11 +31,7 @@ public class GeneratorMaps : MonoBehaviour
             {
                 Vector3 rndTransform = new Vector3(Random.Range(0, map.transform.localScale.x), 0, Random.Range(0, map.transform.localScale.z));
                 mapItem = Instantiate(prefabs[i], rndTransform, Quaternion.identity) as GameObject;
-                if ((Physics.OverlapBox(road.transform.localScale, mapItem.transform.position).Length > 0))
-                {
-                    DestroyImmediate(mapItem);
-                    count++;
-                }
+               
             }
         }
     }
