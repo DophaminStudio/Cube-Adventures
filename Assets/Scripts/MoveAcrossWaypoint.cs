@@ -7,12 +7,16 @@ class MoveAcrossWaypoint : MonoBehaviour
 {
     public WaypointCircuit mainWaypoint;
     public Vector3[] waypoints; //множество точек маршрута 
+    public bool lookAtWp = true;
     public float speed = 1.0f; //скорость движения 
     int currentRoutePoint = 0; //текущий индекс пути 
 
     void Update()
     {
-        transform.LookAt(mainWaypoint.waypointList.items[currentRoutePoint].transform);
+        if (lookAtWp)
+        {
+            transform.LookAt(mainWaypoint.waypointList.items[currentRoutePoint].transform);
+        }
         if (transform.position == mainWaypoint.waypointList.items[currentRoutePoint].transform.position)
         {
             currentRoutePoint++;
